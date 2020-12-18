@@ -19,10 +19,17 @@ public class StringMF extends SimpleMF<String> {
     public StringMF(Context context) {
         super(context);
     }
+
     private String content;
 
     public void setData(String content) {
         this.content = content;
+        if (dataList != null && dataList.size() > 0) {
+            if (mMarqueeView instanceof SimpleMarqueeView) {
+                SimpleMarqueeView simpleMarqueeView = (SimpleMarqueeView) mMarqueeView;
+                fitContent(content, simpleMarqueeView);
+            }
+        }
     }
 
     @Override
@@ -39,7 +46,7 @@ public class StringMF extends SimpleMF<String> {
                         } else {
                             marqueeView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                         }
-                        if(marqueeView instanceof SimpleMarqueeView){
+                        if (marqueeView instanceof SimpleMarqueeView) {
                             SimpleMarqueeView simpleMarqueeView = (SimpleMarqueeView) marqueeView;
                             fitContent(content, simpleMarqueeView);
                         }
@@ -62,11 +69,11 @@ public class StringMF extends SimpleMF<String> {
                 String[] splits = replace.split("@#&");
                 List<String> contents = new ArrayList<>();
                 for (String split : splits) {
-                    contents.addAll(splitMessage(split, mW,textSize));
+                    contents.addAll(splitMessage(split, mW, textSize));
                 }
                 setData(contents);
             } else {
-                setData(splitMessage(message, mW,textSize));
+                setData(splitMessage(message, mW, textSize));
             }
         } catch (RuntimeException e) {
             e.printStackTrace();

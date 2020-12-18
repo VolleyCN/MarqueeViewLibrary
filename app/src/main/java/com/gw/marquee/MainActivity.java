@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initMarqueeView6() {
-//        final String content = "《赋得古原草送别》\n 离离原上草一岁一枯荣。\n 野火烧不尽,春风吹又生。\n远芳侵古道，晴翠接荒城。\n又送王孙去，萋萋满别情。";
+        final String contents = "《赋得古原草送别》\n 离离原上草一岁一枯荣。\n 野火烧不尽,春风吹又生。\n远芳侵古道，晴翠接荒城。\n又送王孙去，萋萋满别情。";
         final String content = "《赋得古原草送别》 离离原上草一岁一枯荣。 野火烧不尽,春风吹又生。远芳侵古道，晴翠接荒城。又送王孙去，萋萋满别情。";
         final StringMF marqueeFactory = new StringMF(this);
         marqueeFactory.setData(content);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Random random = new Random();
                 int delayMillis = (random.nextInt(5) + 4) * 1000;
-                marqueeFactory.setData(content);
+                marqueeFactory.setData(contents);
                 mHandler.postDelayed(this, delayMillis);
             }
         }, 8000);

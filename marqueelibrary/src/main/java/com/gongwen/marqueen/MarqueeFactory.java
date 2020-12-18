@@ -19,7 +19,7 @@ public abstract class MarqueeFactory<T extends View, E> extends Observable {
     protected Context mContext;
     protected List<T> mViews;
     protected List<E> dataList;
-    private MarqueeView mMarqueeView;
+    protected MarqueeView mMarqueeView;
 
     public MarqueeFactory(Context mContext) {
         this.mContext = mContext;
