@@ -52,17 +52,19 @@ public class StringMF extends SimpleMF<String> {
                 @Override
                 public void onGlobalLayout() {
                     try {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            marqueeView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        } else {
-                            marqueeView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        if (mw == 0) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                marqueeView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                            } else {
+                                marqueeView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                            }
+                            mw = marqueeView.getWidth();
+                            if (marqueeView instanceof SimpleMarqueeView) {
+                                SimpleMarqueeView simpleMarqueeView = (SimpleMarqueeView) marqueeView;
+                                textSize = simpleMarqueeView.getTextSize();
+                            }
+                            fitContent(content, mw, textSize);
                         }
-                        mw = marqueeView.getWidth();
-                        if (marqueeView instanceof SimpleMarqueeView) {
-                            SimpleMarqueeView simpleMarqueeView = (SimpleMarqueeView) marqueeView;
-                            textSize = simpleMarqueeView.getTextSize();
-                        }
-                        fitContent(content, mw, textSize);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

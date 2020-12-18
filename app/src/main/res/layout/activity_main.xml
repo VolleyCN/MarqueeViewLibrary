@@ -155,6 +155,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/marqueeView_root_6"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="50dp"
@@ -162,6 +163,7 @@
             android:layout_marginRight="50dp"
             android:background="@drawable/bg_oval_radius"
             android:gravity="center_vertical"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
