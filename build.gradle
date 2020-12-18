@@ -6,20 +6,15 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.novoda:bintray-release:0.8.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
     }
 }
 ext {
-
-    compileSdkVersion = 27
-    buildToolsVersion = '27.0.3'
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.3'
     minSdkVersion = 14
-    targetSdkVersion = 27
-    supportLibraryVersion = '27.0.2'
+    targetSdkVersion = 29
+    supportLibraryVersion = '1.2.0'
     versionCode = 113
     versionName = "1.1.3"
 }

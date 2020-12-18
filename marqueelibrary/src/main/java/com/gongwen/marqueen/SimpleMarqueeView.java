@@ -3,11 +3,12 @@ package com.gongwen.marqueen;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorInt;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
 
 import com.gongwen.marqueen.util.Util;
 
@@ -91,6 +92,14 @@ public class SimpleMarqueeView<E> extends MarqueeView<TextView, E> {
                 textView.setTextSize(textSize);
             }
         }
+    }
+
+    public float getTextSize() {
+        return smvTextSize;
+    }
+
+    public ColorStateList getTextColor() {
+        return smvTextColor;
     }
 
     public void setTextColor(@ColorInt int color) {

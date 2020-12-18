@@ -2,12 +2,13 @@ package com.gongwen.marqueen;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.AnimRes;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ViewFlipper;
+
+import androidx.annotation.AnimRes;
+import androidx.annotation.Nullable;
 
 import com.gongwen.marqueen.util.AnimationListenerAdapter;
 import com.gongwen.marqueen.util.OnItemClickListener;

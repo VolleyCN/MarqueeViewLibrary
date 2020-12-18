@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -22,19 +21,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    testCompile 'junit:junit:4.12'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "androidx.appcompat:appcompat:$supportLibraryVersion"
 }
 
-publish {
-    userOrg = 'gongwen92'      //bintray注册的用户名
-    groupId = 'com.gongwen'         //compile引用时的第1部分groupId
-    artifactId = 'marqueelibrary'     //compile引用时的第2部分项目名
-    publishVersion = rootProject.ext.versionName    //compile引用时的第3部分版本号
-    desc = 'This is the marqueeview library'
-    website = 'https://github.com/gongwen/MarqueeViewDemo'
-}

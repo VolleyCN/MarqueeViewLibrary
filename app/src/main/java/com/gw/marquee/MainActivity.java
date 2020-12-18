@@ -1,8 +1,6 @@
 package com.gw.marquee;
 
 import android.os.Bundle;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 import android.widget.ImageView;
@@ -10,10 +8,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import com.gongwen.marqueen.MarqueeFactory;
 import com.gongwen.marqueen.MarqueeView;
 import com.gongwen.marqueen.SimpleMF;
 import com.gongwen.marqueen.SimpleMarqueeView;
+import com.gongwen.marqueen.StringMF;
 import com.gongwen.marqueen.util.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         marqueeView5 = findViewById(R.id.marqueeView5);
         marqueeView6 = findViewById(R.id.marqueeView6);
         DrawableCompat.setTint(DrawableCompat.wrap(yellowSpeaker.getDrawable().mutate()), getResources().getColor(R.color.yellow));
-
         initMarqueeView1();
         initMarqueeView2();
         initMarqueeView3();
@@ -114,19 +115,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initMarqueeView6() {
-        final SimpleMF<String> marqueeFactory = new SimpleMF<>(this);
-        marqueeFactory.setData(datas);
+//        final String content = "《赋得古原草送别》\n 离离原上草一岁一枯荣。\n 野火烧不尽,春风吹又生。\n远芳侵古道，晴翠接荒城。\n又送王孙去，萋萋满别情。";
+        final String content = "《赋得古原草送别》 离离原上草一岁一枯荣。 野火烧不尽,春风吹又生。远芳侵古道，晴翠接荒城。又送王孙去，萋萋满别情。";
+        final StringMF marqueeFactory = new StringMF(this);
+        marqueeFactory.setData(content);
         marqueeView6.setOnItemClickListener(onSimpleItemClickListener);
         marqueeView6.setMarqueeFactory(marqueeFactory);
         marqueeView6.startFlipping();
-
         //测试重置数据效果
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Random random = new Random();
                 int delayMillis = (random.nextInt(5) + 4) * 1000;
-                marqueeFactory.setData(datas);
+                marqueeFactory.setData(content);
                 mHandler.postDelayed(this, delayMillis);
             }
         }, 8000);
