@@ -24,7 +24,7 @@ public class StringMF extends SimpleMF<String> {
 
     public void setData(String content) {
         this.content = content;
-        if (dataList != null && dataList.size() > 0) {
+        if (mMarqueeView != null && mMarqueeView.getWidth() > 0) {
             if (mMarqueeView instanceof SimpleMarqueeView) {
                 SimpleMarqueeView simpleMarqueeView = (SimpleMarqueeView) mMarqueeView;
                 fitContent(content, simpleMarqueeView);
